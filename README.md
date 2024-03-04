@@ -66,7 +66,8 @@ from sklearn.preprocessing import OrdinalEncoder
 from sklearn.metrics import classification_report,confusion_matrix
 import numpy as np
 import matplotlib.pylab as plt
-
+```
+```py
 df = pd.read_csv('/customers.csv')
 df.head()
 df.columns
@@ -85,7 +86,8 @@ df_cleaned['Var_1'].unique()
 df_cleaned['Spending_Score'].unique()
 df_cleaned['Profession'].unique()
 df_cleaned['Segmentation'].unique()
-
+```
+```py
 from sklearn.preprocessing import OrdinalEncoder
 from sklearn.preprocessing import LabelEncoder
 from sklearn.preprocessing import OneHotEncoder
@@ -119,7 +121,8 @@ cust_1 = cust_1.drop('Var_1',axis=1)
      
 
 cust_1.dtypes
-     
+```
+```py
 
 # Calculate the correlation matrix
 corr = cust_1.corr()
@@ -137,7 +140,8 @@ cust_1.describe()
 cust_1['Segmentation'].unique()
 
 X=cust_1[['Gender','Ever_Married','Age','Graduated','Profession','Work_Experience','Spending_Score','Family_Size']].values
-
+```
+```py
 y1 = cust_1[['Segmentation']].values
 one_hot_enc = OneHotEncoder()
 one_hot_enc.fit(y1)
@@ -156,7 +160,8 @@ scaler_age = MinMaxScaler()
 scaler_age.fit(X_train[:,2].reshape(-1,1))
 X_train_scaled = np.copy(X_train)
 X_test_scaled = np.copy(X_test)
-
+```
+```py
 # To scale the Age column
 X_train_scaled[:,2] = scaler_age.transform(X_train[:,2].reshape(-1,1)).reshape(-1)
 X_test_scaled[:,2] = scaler_age.transform(X_test[:,2].reshape(-1,1)).reshape(-1)
@@ -190,7 +195,8 @@ y_test_truevalue = np.argmax(y_test,axis=1)
 y_test_truevalue.shape
 print(confusion_matrix(y_test_truevalue,x_test_predictions))
 print(classification_report(y_test_truevalue,x_test_predictions))
-     
+```
+```py     
 # Saving the Model
 ai_brain.save('customer_classification_model.h5')
 
